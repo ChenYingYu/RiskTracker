@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -25,6 +26,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true, completion: nil)
     }
     @IBAction func sendButton(_ sender: UIButton) {
+        sendReport()
     }
     
     var imagePicker: UIImagePickerController!
@@ -32,6 +34,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let seriousness = ["1", "2", "3"]
     let naturePickerView = UIPickerView()
     let seriousnessPickerView = UIPickerView()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +46,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func setUpMapView() {
-        let locationManager = CLLocationManager()
         mapView.camera = GMSCameraPosition.camera(withLatitude: locationManager.getUserLatitude(), longitude: locationManager.getUserLongitude(), zoom: 15.0)
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
@@ -104,11 +106,22 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func sendReport() {
+        if let nature = self.natureTextField.text, let seriousness = seriousnessTextField.text, let description = descriptionTextView.text {
+            let now = Date()
+            let timeInterval: TimeInterval = now.timeIntervalSince1970
+            let timeStamp = Int(timeInterval)
+            let newReport: [String: Any] = ["TimeStamp": timeStamp,
+                                              "Location": "\(locationManager.getUserLatitude()), \(locationManager.getUserLongitude())",
+                                              "Picture": "Sample",
+                                              "Nature": nature,
+                                              "Seriousness": seriousness,
+                                              "Description": description]
+            let ref = Database.database().reference()
+            let reportId = ref.child("events").childByAutoId()
+            reportId.setValue(newReport)
+        }
     }
-
 }
 
 extension CLLocationManager {
