@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import GoogleMaps
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var imageView: UIImageView!
+    
     var imagePicker: UIImagePickerController!
     
     @IBAction func takePhotos(_ sender: UIButton) {
@@ -35,7 +38,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 

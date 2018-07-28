@@ -14,6 +14,7 @@
 		0AA7F4E1210C20D400A277AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DF210C20D400A277AB /* LaunchScreen.storyboard */; };
 		0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */; };
 		0AE8A5FF210C405000BD566A /* RTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8A5FE210C405000BD566A /* RTConstants.swift */; };
+		20263011AFA48BB35599FFAC /* Pods_RiskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		0AA7F4E2210C20D400A277AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTImagePickerViewController.swift; sourceTree = "<group>"; };
 		0AE8A5FE210C405000BD566A /* RTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTConstants.swift; sourceTree = "<group>"; };
+		2D37562F0E551C8D3E29BAAC /* Pods-RiskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker.release.xcconfig"; sourceTree = "<group>"; };
+		CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2F3E3D2CCF66320E3CD84FC /* Pods-RiskTracker.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiskTracker.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20263011AFA48BB35599FFAC /* Pods_RiskTracker.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				0AA7F4D5210C20CA00A277AB /* RiskTracker */,
 				0AA7F4D4210C20CA00A277AB /* Products */,
+				752EE1B0286BFFE50E735BC2 /* Pods */,
+				BE3DE0BE4743020CB126DE6F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +77,23 @@
 			path = RiskTracker;
 			sourceTree = "<group>";
 		};
+		752EE1B0286BFFE50E735BC2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F2F3E3D2CCF66320E3CD84FC /* Pods-RiskTracker.debug.xcconfig */,
+				2D37562F0E551C8D3E29BAAC /* Pods-RiskTracker.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BE3DE0BE4743020CB126DE6F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0AA7F4E5210C20D400A277AB /* Build configuration list for PBXNativeTarget "RiskTracker" */;
 			buildPhases = (
+				2D9DF603776D186C60C8FC3B /* [CP] Check Pods Manifest.lock */,
 				0AA7F4CF210C20CA00A277AB /* Sources */,
 				0AA7F4D0210C20CA00A277AB /* Frameworks */,
 				0AA7F4D1210C20CA00A277AB /* Resources */,
+				257B9A95402A27592E0E72A9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -135,6 +161,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		257B9A95402A27592E0E72A9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D9DF603776D186C60C8FC3B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RiskTracker-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0AA7F4CF210C20CA00A277AB /* Sources */ = {
@@ -286,15 +351,13 @@
 		};
 		0AA7F4E6210C20D400A277AB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2F3E3D2CCF66320E3CD84FC /* Pods-RiskTracker.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9VPGGN82CW;
 				INFOPLIST_FILE = RiskTracker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChenAlan.RiskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -304,15 +367,13 @@
 		};
 		0AA7F4E7210C20D400A277AB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D37562F0E551C8D3E29BAAC /* Pods-RiskTracker.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9VPGGN82CW;
 				INFOPLIST_FILE = RiskTracker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChenAlan.RiskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
