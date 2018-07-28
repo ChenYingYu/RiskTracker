@@ -13,6 +13,7 @@
 		0AA7F4DE210C20D400A277AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DD210C20D400A277AB /* Assets.xcassets */; };
 		0AA7F4E1210C20D400A277AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DF210C20D400A277AB /* LaunchScreen.storyboard */; };
 		0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */; };
+		0AE8A5FF210C405000BD566A /* RTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8A5FE210C405000BD566A /* RTConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		0AA7F4E0210C20D400A277AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AA7F4E2210C20D400A277AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTImagePickerViewController.swift; sourceTree = "<group>"; };
+		0AE8A5FE210C405000BD566A /* RTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				0AA7F4D6210C20CA00A277AB /* AppDelegate.swift */,
 				0AA7F4D8210C20CA00A277AB /* ViewController.swift */,
 				0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */,
+				0AE8A5FE210C405000BD566A /* RTConstants.swift */,
 				0AA7F4DA210C20CA00A277AB /* Main.storyboard */,
 				0AA7F4DD210C20D400A277AB /* Assets.xcassets */,
 				0AA7F4DF210C20D400A277AB /* LaunchScreen.storyboard */,
@@ -141,6 +144,7 @@
 				0AA7F4D9210C20CA00A277AB /* ViewController.swift in Sources */,
 				0AA7F4D7210C20CA00A277AB /* AppDelegate.swift in Sources */,
 				0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */,
+				0AE8A5FF210C405000BD566A /* RTConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
