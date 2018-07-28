@@ -14,6 +14,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var shortDescription: UILabel!
     @IBOutlet weak var natureTextField: UITextField!
     @IBOutlet weak var seriousnessTextField: UITextField!
+    @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var imageView: UIImageView!
     
@@ -37,6 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         setUpMapView()
         setUpPickerView()
         setUpTextField()
+        setUpKeyboard()
     }
     
     func setUpMapView() {
@@ -58,6 +60,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setUpTextField() {
         natureTextField.inputView = naturePickerView
         seriousnessTextField.inputView = seriousnessPickerView
+    }
+    
+    func setUpKeyboard() {
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
