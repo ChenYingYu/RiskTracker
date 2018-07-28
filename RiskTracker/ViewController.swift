@@ -27,6 +27,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        setUpMapView()
+    }
+    
+    func setUpMapView() {
+        let locationManager = CLLocationManager()
+        mapView.camera = GMSCameraPosition.camera(withLatitude: locationManager.getUserLatitude(), longitude: locationManager.getUserLongitude(), zoom: 15.0)
+        mapView.isMyLocationEnabled = true
+        mapView.delegate = self
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -41,3 +49,25 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
 }
 
+extension CLLocationManager {
+    
+    func getUserLatitude() -> Double {
+        guard let userLatitude = self.location?.coordinate.latitude else {
+            print("ErrorMessage userLocationNotFound")
+            return 25.042416
+        }
+        return userLatitude
+    }
+    
+    func getUserLongitude() -> Double {
+        guard let userLongitude = self.location?.coordinate.longitude else {
+            print("ErrorMessage userLocationNotFound")
+            return 121.564793
+        }
+        return userLongitude
+    }
+}
+
+extension ViewController: GMSMapViewDelegate {
+
+}
