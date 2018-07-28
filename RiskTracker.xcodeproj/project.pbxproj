@@ -14,6 +14,7 @@
 		0AA7F4E1210C20D400A277AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DF210C20D400A277AB /* LaunchScreen.storyboard */; };
 		0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */; };
 		0ADBEA4B210CAC3F00958DEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */; };
+		0ADBEA4F210CD52500958DEC /* RTDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEA4E210CD52500958DEC /* RTDateFormatter.swift */; };
 		0AE8A5FF210C405000BD566A /* RTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8A5FE210C405000BD566A /* RTConstants.swift */; };
 		20263011AFA48BB35599FFAC /* Pods_RiskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */; };
 /* End PBXBuildFile section */
@@ -28,6 +29,7 @@
 		0AA7F4E2210C20D400A277AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTImagePickerViewController.swift; sourceTree = "<group>"; };
 		0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0ADBEA4E210CD52500958DEC /* RTDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTDateFormatter.swift; sourceTree = "<group>"; };
 		0AE8A5FE210C405000BD566A /* RTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTConstants.swift; sourceTree = "<group>"; };
 		2D37562F0E551C8D3E29BAAC /* Pods-RiskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker.release.xcconfig"; sourceTree = "<group>"; };
 		CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -69,6 +71,7 @@
 			children = (
 				0AA7F4D6210C20CA00A277AB /* AppDelegate.swift */,
 				0AA7F4D8210C20CA00A277AB /* ViewController.swift */,
+				0ADBEA4E210CD52500958DEC /* RTDateFormatter.swift */,
 				0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */,
 				0AE8A5FE210C405000BD566A /* RTConstants.swift */,
 				0AA7F4DA210C20CA00A277AB /* Main.storyboard */,
@@ -109,6 +112,7 @@
 				0AA7F4D0210C20CA00A277AB /* Frameworks */,
 				0AA7F4D1210C20CA00A277AB /* Resources */,
 				257B9A95402A27592E0E72A9 /* [CP] Copy Pods Resources */,
+				ED2E6518ACC0FF6E742DD376 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -203,6 +207,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		ED2E6518ACC0FF6E742DD376 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -211,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA7F4D9210C20CA00A277AB /* ViewController.swift in Sources */,
+				0ADBEA4F210CD52500958DEC /* RTDateFormatter.swift in Sources */,
 				0AA7F4D7210C20CA00A277AB /* AppDelegate.swift in Sources */,
 				0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */,
 				0AE8A5FF210C405000BD566A /* RTConstants.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import GoogleMaps
+import Firebase
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -17,7 +18,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBAction func takePhotos(_ sender: UIButton) {
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
@@ -25,12 +25,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         present(imagePicker, animated: true, completion: nil)
     }
+    @IBAction func sendButton(_ sender: UIButton) {
+        sendReport()
+    }
     
     var imagePicker: UIImagePickerController!
     let nature = ["Cars","Roads","People"]
     let seriousness = ["1", "2", "3"]
     let naturePickerView = UIPickerView()
     let seriousnessPickerView = UIPickerView()
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +46,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func setUpMapView() {
-        let locationManager = CLLocationManager()
         mapView.camera = GMSCameraPosition.camera(withLatitude: locationManager.getUserLatitude(), longitude: locationManager.getUserLongitude(), zoom: 15.0)
         mapView.isMyLocationEnabled = true
         mapView.delegate = self
@@ -103,11 +106,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         self.imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func sendReport() {
+        if let nature = self.natureTextField.text, let seriousness = seriousnessTextField.text, let description = descriptionTextView.text {
+            let now = Date()
+            let timeInterval: TimeInterval = now.timeIntervalSince1970
+            let dateFormatter = RTDateFormatter()
+            let timeStamp = dateFormatter.dateWithUnitTime(time: timeInterval)
+            let imageString = NSUUID().uuidString
+            let storageRef = Storage.storage().reference().child("image").child("\(imageString).png")
+            
+            if let image = imageView.image, let uploadData = UIImageJPEGRepresentation(image, 0.1) {
+                storageRef.putData(uploadData, metadata: nil) { (data, error) in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    if let uploadUrl = data?.downloadURL()?.absoluteString {
+                        let locationManager = CLLocationManager()
+                        let newReport: [String: Any] = ["TimeStamp": timeStamp,
+                                                        "Location": "\(locationManager.getUserLatitude()), \(locationManager.getUserLongitude())",
+                            "Picture": uploadUrl,
+                            "Nature": nature,
+                            "Seriousness": seriousness,
+                            "Description": description]
+                        let ref = Database.database().reference()
+                        let reportId = ref.child("events").childByAutoId()
+                        reportId.setValue(newReport)
+                        
+                    }
+                }
+            }
+        }
     }
-
 }
 
 extension CLLocationManager {
