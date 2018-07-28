@@ -80,6 +80,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Select" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xja-ng-7Ve">
+                                <rect key="frame" x="247" y="286" width="97" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -94,9 +101,8 @@
                     <connections>
                         <outlet property="imageView" destination="luW-FE-hgp" id="NA2-a0-mWa"/>
                         <outlet property="mapView" destination="EJl-RZ-CYW" id="1J0-ld-7QD"/>
-                        <outlet property="natureLabel" destination="TIh-2i-Cea" id="2ag-AF-awF"/>
                         <outlet property="natureTextField" destination="1dF-wO-wWs" id="oyT-hH-eLg"/>
-                        <outlet property="seriousnessLabel" destination="ZO3-Vn-4L0" id="3iQ-Qo-gCg"/>
+                        <outlet property="seriousnessTextField" destination="Xja-ng-7Ve" id="LAg-zm-PiG"/>
                         <outlet property="shortDescription" destination="bDy-dU-LNE" id="Pwy-FG-dbJ"/>
                     </connections>
                 </viewController>

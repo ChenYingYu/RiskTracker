@@ -11,10 +11,9 @@ import GoogleMaps
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    @IBOutlet weak var natureLabel: UILabel!
-    @IBOutlet weak var seriousnessLabel: UILabel!
     @IBOutlet weak var shortDescription: UILabel!
     @IBOutlet weak var natureTextField: UITextField!
+    @IBOutlet weak var seriousnessTextField: UITextField!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var imageView: UIImageView!
     
@@ -28,7 +27,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     var imagePicker: UIImagePickerController!
     let nature = ["Cars","Roads","People"]
+    let seriousness = ["1", "2", "3"]
     let naturePickerView = UIPickerView()
+    let seriousnessPickerView = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,10 +49,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setUpPickerView() {
         naturePickerView.delegate = self
         naturePickerView.dataSource = self
+        naturePickerView.tag = 1
+        seriousnessPickerView.delegate = self
+        seriousnessPickerView.dataSource = self
+        seriousnessPickerView.tag = 2
     }
     
     func setUpTextField() {
         natureTextField.inputView = naturePickerView
+        seriousnessTextField.inputView = seriousnessPickerView
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -92,15 +98,20 @@ extension ViewController: GMSMapViewDelegate, UIPickerViewDelegate, UIPickerView
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return nature.count
+        return pickerView.tag == 1 ? nature.count : seriousness.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return nature[row]
+        return pickerView.tag == 1 ? nature[row] : seriousness[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        natureTextField.text = nature[row]
-        natureTextField.resignFirstResponder()
+        if pickerView.tag == 1 {
+            natureTextField.text = nature[row]
+            natureTextField.resignFirstResponder()
+        } else {
+            seriousnessTextField.text = seriousness[row]
+            seriousnessTextField.resignFirstResponder()
+        }
     }
 }
