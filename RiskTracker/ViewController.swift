@@ -110,7 +110,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         if let nature = self.natureTextField.text, let seriousness = seriousnessTextField.text, let description = descriptionTextView.text {
             let now = Date()
             let timeInterval: TimeInterval = now.timeIntervalSince1970
-            let timeStamp = Int(timeInterval)
+            let dateFormatter = RTDateFormatter()
+            let timeStamp = dateFormatter.dateWithUnitTime(time: timeInterval)
             let newReport: [String: Any] = ["TimeStamp": timeStamp,
                                               "Location": "\(locationManager.getUserLatitude()), \(locationManager.getUserLongitude())",
                                               "Picture": "Sample",
