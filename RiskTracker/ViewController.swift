@@ -112,15 +112,30 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let timeInterval: TimeInterval = now.timeIntervalSince1970
             let dateFormatter = RTDateFormatter()
             let timeStamp = dateFormatter.dateWithUnitTime(time: timeInterval)
-            let newReport: [String: Any] = ["TimeStamp": timeStamp,
-                                              "Location": "\(locationManager.getUserLatitude()), \(locationManager.getUserLongitude())",
-                                              "Picture": "Sample",
-                                              "Nature": nature,
-                                              "Seriousness": seriousness,
-                                              "Description": description]
-            let ref = Database.database().reference()
-            let reportId = ref.child("events").childByAutoId()
-            reportId.setValue(newReport)
+            let imageString = NSUUID().uuidString
+            let storageRef = Storage.storage().reference().child("image").child("\(imageString).png")
+            
+            if let image = imageView.image, let uploadData = UIImageJPEGRepresentation(image, 0.1) {
+                storageRef.putData(uploadData, metadata: nil) { (data, error) in
+                    if error != nil {
+                        print(error)
+                        return
+                    }
+                    if let uploadUrl = data?.downloadURL()?.absoluteString {
+                        let locationManager = CLLocationManager()
+                        let newReport: [String: Any] = ["TimeStamp": timeStamp,
+                                                        "Location": "\(locationManager.getUserLatitude()), \(locationManager.getUserLongitude())",
+                            "Picture": uploadUrl,
+                            "Nature": nature,
+                            "Seriousness": seriousness,
+                            "Description": description]
+                        let ref = Database.database().reference()
+                        let reportId = ref.child("events").childByAutoId()
+                        reportId.setValue(newReport)
+                        
+                    }
+                }
+            }
         }
     }
 }
