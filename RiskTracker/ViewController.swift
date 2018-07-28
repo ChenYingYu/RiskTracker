@@ -64,6 +64,38 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func setUpKeyboard() {
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidShow), name: Notification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: Notification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    @objc func keyboardWillHide(notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame: CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardHeight = keyboardFrame.size.height
+            let duration: Double = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
+            
+            UIView.animate(withDuration: duration, animations: { () -> Void in
+                var frame = self.view.frame
+                frame.origin.y += keyboardHeight
+                frame.origin.y -= self.view.safeAreaInsets.bottom
+                self.view.frame = frame
+            })
+        }
+    }
+    
+    @objc func keyboardDidShow(notification: Notification) {
+        if let userInfo = notification.userInfo {
+            let keyboardFrame: CGRect = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let keyboardHeight = keyboardFrame.size.height
+            let duration: Double = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
+            
+            UIView.animate(withDuration: duration, animations: { () -> Void in
+                var frame = self.view.frame
+                frame.origin.y -= keyboardHeight
+                frame.origin.y += self.view.safeAreaInsets.bottom
+                self.view.frame = frame
+            })
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
