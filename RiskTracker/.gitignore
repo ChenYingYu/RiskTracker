@@ -22,6 +22,7 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 RTConstants.swift
+GoogleService-Info.plist
 
 ## Obj-C/Swift specific
 *.hmap

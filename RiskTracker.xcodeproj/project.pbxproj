@@ -13,6 +13,7 @@
 		0AA7F4DE210C20D400A277AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DD210C20D400A277AB /* Assets.xcassets */; };
 		0AA7F4E1210C20D400A277AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DF210C20D400A277AB /* LaunchScreen.storyboard */; };
 		0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */; };
+		0ADBEA4B210CAC3F00958DEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */; };
 		0AE8A5FF210C405000BD566A /* RTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8A5FE210C405000BD566A /* RTConstants.swift */; };
 		20263011AFA48BB35599FFAC /* Pods_RiskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		0AA7F4E0210C20D400A277AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AA7F4E2210C20D400A277AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTImagePickerViewController.swift; sourceTree = "<group>"; };
+		0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0AE8A5FE210C405000BD566A /* RTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTConstants.swift; sourceTree = "<group>"; };
 		2D37562F0E551C8D3E29BAAC /* Pods-RiskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker.release.xcconfig"; sourceTree = "<group>"; };
 		CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,6 +75,7 @@
 				0AA7F4DD210C20D400A277AB /* Assets.xcassets */,
 				0AA7F4DF210C20D400A277AB /* LaunchScreen.storyboard */,
 				0AA7F4E2210C20D400A277AB /* Info.plist */,
+				0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */,
 			);
 			path = RiskTracker;
 			sourceTree = "<group>";
@@ -155,6 +158,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AA7F4E1210C20D400A277AB /* LaunchScreen.storyboard in Resources */,
+				0ADBEA4B210CAC3F00958DEC /* GoogleService-Info.plist in Resources */,
 				0AA7F4DE210C20D400A277AB /* Assets.xcassets in Resources */,
 				0AA7F4DC210C20CA00A277AB /* Main.storyboard in Resources */,
 			);
@@ -357,7 +361,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9VPGGN82CW;
 				INFOPLIST_FILE = RiskTracker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChenAlan.RiskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -373,7 +380,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9VPGGN82CW;
 				INFOPLIST_FILE = RiskTracker/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ChenAlan.RiskTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
