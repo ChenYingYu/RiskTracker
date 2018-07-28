@@ -17,13 +17,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBAction func takePhotos(_ sender: UIButton) {
         imagePicker =  UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera
 
         present(imagePicker, animated: true, completion: nil)
+    }
+    @IBAction func sendButton(_ sender: UIButton) {
     }
     
     var imagePicker: UIImagePickerController!
