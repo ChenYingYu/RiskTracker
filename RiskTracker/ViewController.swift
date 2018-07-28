@@ -124,7 +124,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                     }
                     if let uploadUrl = data?.downloadURL()?.absoluteString {
                         let ref = Database.database().reference()
-                        let reportId = ref.child("events").childByAutoId()
+                        let reportId = ref.childByAutoId()
                         self?.recognizeImage(withUrl: uploadUrl, withId: reportId)
                         let locationManager = CLLocationManager()
                         let newReport: [String: Any] = ["TimeStamp": timeStamp,
