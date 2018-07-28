@@ -15,9 +15,24 @@
 		0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */; };
 		0ADBEA4B210CAC3F00958DEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */; };
 		0ADBEA4F210CD52500958DEC /* RTDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEA4E210CD52500958DEC /* RTDateFormatter.swift */; };
+		0ADBEA51210CEB5400958DEC /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADBEA50210CEB5400958DEC /* VisualRecognitionV3.framework */; };
+		0ADBEA55210CECB900958DEC /* VisualRecognitionV3.framework.dSYM in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0ADBEA54210CECB800958DEC /* VisualRecognitionV3.framework.dSYM */; };
 		0AE8A5FF210C405000BD566A /* RTConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE8A5FE210C405000BD566A /* RTConstants.swift */; };
 		20263011AFA48BB35599FFAC /* Pods_RiskTracker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0ADBEA53210CEC8C00958DEC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 7;
+			files = (
+				0ADBEA55210CECB900958DEC /* VisualRecognitionV3.framework.dSYM in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0AA7F4D3210C20CA00A277AB /* RiskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -30,6 +45,8 @@
 		0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTImagePickerViewController.swift; sourceTree = "<group>"; };
 		0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0ADBEA4E210CD52500958DEC /* RTDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTDateFormatter.swift; sourceTree = "<group>"; };
+		0ADBEA50210CEB5400958DEC /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisualRecognitionV3.framework; path = Carthage/Build/iOS/VisualRecognitionV3.framework; sourceTree = "<group>"; };
+		0ADBEA54210CECB800958DEC /* VisualRecognitionV3.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; name = VisualRecognitionV3.framework.dSYM; path = Carthage/Build/iOS/VisualRecognitionV3.framework.dSYM; sourceTree = "<group>"; };
 		0AE8A5FE210C405000BD566A /* RTConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTConstants.swift; sourceTree = "<group>"; };
 		2D37562F0E551C8D3E29BAAC /* Pods-RiskTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RiskTracker.release.xcconfig"; path = "Pods/Target Support Files/Pods-RiskTracker/Pods-RiskTracker.release.xcconfig"; sourceTree = "<group>"; };
 		CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RiskTracker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				20263011AFA48BB35599FFAC /* Pods_RiskTracker.framework in Frameworks */,
+				0ADBEA51210CEB5400958DEC /* VisualRecognitionV3.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +69,7 @@
 		0AA7F4CA210C20C900A277AB = {
 			isa = PBXGroup;
 			children = (
+				0ADBEA54210CECB800958DEC /* VisualRecognitionV3.framework.dSYM */,
 				0AA7F4D5210C20CA00A277AB /* RiskTracker */,
 				0AA7F4D4210C20CA00A277AB /* Products */,
 				752EE1B0286BFFE50E735BC2 /* Pods */,
@@ -95,6 +114,7 @@
 		BE3DE0BE4743020CB126DE6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0ADBEA50210CEB5400958DEC /* VisualRecognitionV3.framework */,
 				CAC81C6328E7758866E2AE95 /* Pods_RiskTracker.framework */,
 			);
 			name = Frameworks;
@@ -113,6 +133,8 @@
 				0AA7F4D1210C20CA00A277AB /* Resources */,
 				257B9A95402A27592E0E72A9 /* [CP] Copy Pods Resources */,
 				ED2E6518ACC0FF6E742DD376 /* [CP] Embed Pods Frameworks */,
+				0ADBEA52210CEB7800958DEC /* ShellScript */,
+				0ADBEA53210CEC8C00958DEC /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -171,6 +193,20 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0ADBEA52210CEB7800958DEC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/VisualRecognitionV3.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		257B9A95402A27592E0E72A9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -389,6 +425,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9VPGGN82CW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RiskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -408,6 +448,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9VPGGN82CW;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = RiskTracker/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

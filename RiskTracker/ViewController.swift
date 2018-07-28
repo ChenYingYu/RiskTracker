@@ -9,6 +9,7 @@
 import UIKit
 import GoogleMaps
 import Firebase
+import VisualRecognitionV3
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -116,12 +117,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let storageRef = Storage.storage().reference().child("image").child("\(imageString).png")
             
             if let image = imageView.image, let uploadData = UIImageJPEGRepresentation(image, 0.1) {
-                storageRef.putData(uploadData, metadata: nil) { (data, error) in
+                storageRef.putData(uploadData, metadata: nil) { [weak self] (data, error) in
                     if error != nil {
                         print(error)
                         return
                     }
                     if let uploadUrl = data?.downloadURL()?.absoluteString {
+                        self?.recognizeImage(withUrl: uploadUrl)
                         let locationManager = CLLocationManager()
                         let newReport: [String: Any] = ["TimeStamp": timeStamp,
                                                         "Location": "\(locationManager.getUserLatitude()), \(locationManager.getUserLongitude())",
@@ -135,6 +137,19 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         
                     }
                 }
+            }
+        }
+    }
+    
+    func recognizeImage(withUrl urlString: String) {
+        let apiKey = RTConstants.IBMAPIKey
+        let version = "2018-07-29" // use today's date for the most recent version
+        let visualRecognition = VisualRecognition(version: version, apiKey: apiKey)
+        let failure = { (error: Error) in print(error) }
+        if let url = URL(string: urlString), let data = try? Data(contentsOf: url),             let image = UIImage(data: data)
+        {
+            visualRecognition.classify(image: image, failure: failure) { classifiedImages in
+                print(classifiedImages.images[0].classifiers[0].classes)
             }
         }
     }
