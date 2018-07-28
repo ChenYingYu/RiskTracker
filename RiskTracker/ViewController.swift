@@ -123,35 +123,56 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                         return
                     }
                     if let uploadUrl = data?.downloadURL()?.absoluteString {
-                        self?.recognizeImage(withUrl: uploadUrl)
+                        let ref = Database.database().reference()
+                        let reportId = ref.child("events").childByAutoId()
+                        self?.recognizeImage(withUrl: uploadUrl, withId: reportId)
                         let locationManager = CLLocationManager()
                         let newReport: [String: Any] = ["TimeStamp": timeStamp,
                                                         "Location": "\(locationManager.getUserLatitude()), \(locationManager.getUserLongitude())",
                             "Picture": uploadUrl,
                             "Nature": nature,
                             "Seriousness": seriousness,
-                            "Description": description]
-                        let ref = Database.database().reference()
-                        let reportId = ref.child("events").childByAutoId()
+                            "Description": description,
+                            "WatsonClassifier": ["test1","test2","test3"]]
                         reportId.setValue(newReport)
-                        
                     }
                 }
             }
         }
     }
     
-    func recognizeImage(withUrl urlString: String) {
+    func recognizeImage(withUrl urlString: String, withId id: DatabaseReference) {
         let apiKey = RTConstants.IBMAPIKey
         let version = "2018-07-29" // use today's date for the most recent version
         let visualRecognition = VisualRecognition(version: version, apiKey: apiKey)
         let failure = { (error: Error) in print(error) }
         if let url = URL(string: urlString), let data = try? Data(contentsOf: url),             let image = UIImage(data: data)
         {
-            visualRecognition.classify(image: image, failure: failure) { classifiedImages in
+            visualRecognition.classify(image: image, failure: failure) { [weak self] classifiedImages in
                 print(classifiedImages.images[0].classifiers[0].classes)
+                let classResults = classifiedImages.images[0].classifiers[0].classes
+                let topThreeResults = self?.getTopThreeClasses(of: classResults)
+                print(topThreeResults)
             }
         }
+    }
+    
+    func getTopThreeClasses(of classResults: [ClassResult]) -> [String] {
+        var results = classResults
+        var topThree = [String]()
+        var targetIndex = 0
+        for _ in 0..<3 {
+            var possibility = 0.0
+            for index in results.indices {
+                if let score = results[index].score, score > possibility {
+                    possibility = score
+                    targetIndex = index
+                }
+            }
+            topThree.append(results[targetIndex].className)
+            results.remove(at: targetIndex)
+        }
+        return topThree
     }
 }
 
