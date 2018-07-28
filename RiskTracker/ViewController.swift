@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var imageView: UIImageView!
     var imagePicker: UIImagePickerController!
     
     @IBAction func takePhotos(_ sender: UIButton) {
@@ -23,6 +24,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        imagePicker.dismiss(animated: true, completion: nil)
+        self.imageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage
     }
 
     override func didReceiveMemoryWarning() {
