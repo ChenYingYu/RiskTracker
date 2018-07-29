@@ -27,7 +27,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         sendReport()
     }
     @IBAction func startChatting(_ sender: UIButton) {
-        activateChatbot()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let chatbotViewController = storyboard.instantiateViewController(withIdentifier: "ChatbotViewController") as? RTChatbotViewController {
+            present(chatbotViewController, animated: true)
+        }
     }
     
     var imagePicker: UIImagePickerController!
