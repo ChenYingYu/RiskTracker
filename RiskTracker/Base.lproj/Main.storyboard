@@ -132,6 +132,14 @@
                                                 <action selector="takePhotos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VK3-GT-apJ"/>
                                             </connections>
                                         </button>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XSH-A9-ttj">
+                                            <rect key="frame" x="322" y="604" width="39" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Chat"/>
+                                            <connections>
+                                                <action selector="startChatting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ksk-fs-DrN"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
