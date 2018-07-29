@@ -10,7 +10,8 @@ import UIKit
 import AssistantV1
 
 class RTChatbotViewController: UIViewController {
-
+    @IBOutlet weak var firstChatbotLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -28,8 +29,12 @@ class RTChatbotViewController: UIViewController {
         let failure = { (error: Error) in print(error) }
         var context: Context? // save context to continue conversation
         assistant.message(workspaceID: workspaceID, failure: failure) {
+            [weak self]
             response in
             print(response.output.text)
+            DispatchQueue.main.async {
+                self?.firstChatbotLabel.text = response.output.text[0]
+            }
             context = response.context
         }
         let input = InputData(text: "2")
