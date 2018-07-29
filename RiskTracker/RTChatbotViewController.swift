@@ -13,6 +13,9 @@ class RTChatbotViewController: UIViewController {
     @IBOutlet weak var firstChatbotLabel: UILabel!
     @IBOutlet weak var userChatLabel: UILabel!
     @IBOutlet weak var secondChatbotLabel: UILabel!
+    @IBAction func getBack(_ sender: UIButton) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var chatTextField: UITextField!
     
     override func viewDidLoad() {
