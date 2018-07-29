@@ -154,6 +154,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 }
             }
         }
+        showAlert(title: "Message Received", message: "Thanks for reporting")
     }
     
     func recognizeImage(withUrl urlString: String, withId id: DatabaseReference) {
@@ -242,5 +243,15 @@ extension ViewController: GMSMapViewDelegate, UIPickerViewDelegate, UIPickerView
             seriousnessTextField.text = seriousness[row]
             seriousnessTextField.resignFirstResponder()
         }
+    }
+}
+
+extension UIViewController {
+    func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(okAction)
+        
+        self.present(alertController, animated: true)
     }
 }
