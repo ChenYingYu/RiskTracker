@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -42,10 +41,11 @@
                                             </constraints>
                                         </view>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo-camera" translatesAutoresizingMaskIntoConstraints="NO" id="luW-FE-hgp">
-                                            <rect key="frame" x="60" y="207" width="255" height="191"/>
+                                            <rect key="frame" x="117.5" y="207" width="140" height="208"/>
                                             <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" secondItem="luW-FE-hgp" secondAttribute="height" multiplier="4:3" id="bXC-yW-cDY"/>
+                                                <constraint firstAttribute="width" constant="140" id="8QS-8P-Cca"/>
+                                                <constraint firstAttribute="height" constant="208" id="Ssr-Oc-XqB"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -93,22 +93,6 @@
                                                 </userDefinedRuntimeAttribute>
                                             </userDefinedRuntimeAttributes>
                                         </textView>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCQ-sT-wQ1">
-                                            <rect key="frame" x="128" y="423" width="114" height="30"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <color key="backgroundColor" red="0.37647058820000001" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <state key="normal" title="Take Photos">
-                                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="4"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                            <connections>
-                                                <action selector="takePhotos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VK3-GT-apJ"/>
-                                            </connections>
-                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4XV-Iy-cfw">
                                             <rect key="frame" x="131" y="609" width="112" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,15 +116,30 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCQ-sT-wQ1">
+                                            <rect key="frame" x="131" y="423" width="114" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.37647058820000001" green="0.68235294120000001" blue="0.83137254900000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Take Photos">
+                                                <color key="titleColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="4"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                            <connections>
+                                                <action selector="takePhotos:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VK3-GT-apJ"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="EJl-RZ-CYW" secondAttribute="trailing" constant="20" id="0W8-wt-2KZ"/>
                                         <constraint firstItem="EJl-RZ-CYW" firstAttribute="top" secondItem="PKy-Rs-a2L" secondAttribute="top" constant="40" id="3z0-ZL-OrR"/>
                                         <constraint firstItem="EJl-RZ-CYW" firstAttribute="leading" secondItem="PKy-Rs-a2L" secondAttribute="leading" constant="20" id="BzA-ii-2FB"/>
-                                        <constraint firstAttribute="trailing" secondItem="luW-FE-hgp" secondAttribute="trailing" constant="60" id="Mur-3H-c4z"/>
+                                        <constraint firstItem="luW-FE-hgp" firstAttribute="centerX" secondItem="PKy-Rs-a2L" secondAttribute="centerX" id="Ult-Hd-ovA"/>
                                         <constraint firstItem="luW-FE-hgp" firstAttribute="top" secondItem="EJl-RZ-CYW" secondAttribute="bottom" constant="17" id="kej-TO-8MY"/>
-                                        <constraint firstItem="luW-FE-hgp" firstAttribute="leading" secondItem="PKy-Rs-a2L" secondAttribute="leading" constant="60" id="tlp-F0-CDt"/>
                                     </constraints>
                                 </view>
                             </tableView>
