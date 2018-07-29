@@ -208,6 +208,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/VisualRecognitionV3.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AssistantV1.framework",
 			);
 			outputPaths = (
 			);
