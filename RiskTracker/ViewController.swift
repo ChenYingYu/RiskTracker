@@ -20,11 +20,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var imageView: UIImageView!
     @IBAction func takePhotos(_ sender: UIButton) {
-        imagePicker =  UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-
-        present(imagePicker, animated: true, completion: nil)
+        showCamera()
     }
     @IBAction func sendButton(_ sender: UIButton) {
         sendReport()
@@ -36,6 +32,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     let naturePickerView = UIPickerView()
     let seriousnessPickerView = UIPickerView()
     let locationManager = CLLocationManager()
+    var firstOpen = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +41,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         setUpPickerView()
         setUpTextField()
         setUpKeyboard()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if firstOpen {
+            showCamera()
+            firstOpen = false
+        }
     }
     
     func setUpMapView() {
@@ -64,6 +68,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func setUpTextField() {
         natureTextField.inputView = naturePickerView
         seriousnessTextField.inputView = seriousnessPickerView
+    }
+    
+    func showCamera() {
+        imagePicker =  UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera
+        present(imagePicker, animated: true, completion: nil)
     }
     
     func setUpKeyboard() {
