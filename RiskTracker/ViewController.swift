@@ -79,10 +79,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let duration: Double = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
             
             UIView.animate(withDuration: duration, animations: { () -> Void in
-                var frame = self.view.frame
-                frame.origin.y += keyboardHeight
-                frame.origin.y -= self.view.safeAreaInsets.bottom
-                self.view.frame = frame
+                if self.view.frame.minY != 0 {
+                    var frame = self.view.frame
+                    frame.origin.y += keyboardHeight
+                    frame.origin.y -= self.view.safeAreaInsets.bottom
+                    self.view.frame = frame
+                }
             })
         }
     }
@@ -94,10 +96,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let duration: Double = userInfo[UIKeyboardAnimationDurationUserInfoKey] as! Double
             
             UIView.animate(withDuration: duration, animations: { () -> Void in
-                var frame = self.view.frame
-                frame.origin.y -= keyboardHeight
-                frame.origin.y += self.view.safeAreaInsets.bottom
-                self.view.frame = frame
+                if self.view.frame.minY == 0 {
+                    var frame = self.view.frame
+                    frame.origin.y -= keyboardHeight
+                    frame.origin.y += self.view.safeAreaInsets.bottom
+                    self.view.frame = frame
+                }
             })
         }
     }
