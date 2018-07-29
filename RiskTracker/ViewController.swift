@@ -151,8 +151,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             visualRecognition.classify(image: image, failure: failure) { [weak self] classifiedImages in
                 print(classifiedImages.images[0].classifiers[0].classes)
                 let classResults = classifiedImages.images[0].classifiers[0].classes
-                let topThreeResults = self?.getTopThreeClasses(of: classResults)
-                print(topThreeResults)
+                if let topThreeResults = self?.getTopThreeClasses(of: classResults) {
+                    print(topThreeResults)
+                    let ref = Database.database().reference()
+                    let getSpot = ref.child(id.key)
+                    getSpot.observe(.value) { (snapshot) in
+                        guard let snap = snapshot.value as? [String: AnyObject] else {
+                            return
+                        }
+                        let spotUpdate = ["WatsonClassifier": topThreeResults]
+                        ref.child(id.key).updateChildValues(spotUpdate)
+                    }
+                }
             }
         }
     }
