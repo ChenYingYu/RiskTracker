@@ -27,12 +27,12 @@ class RTChatbotViewController: UIViewController {
     }
 
     func activateChatbot() {
-        let username = "681ad1db-ad92-4885-8833-63190dec864e"
-        let password = "WvREbOy1Exb4"
+        let username = RTConstants.chatbotUserName 
+        let password = RTConstants.chatbotPassword
         let version = "2018-07-29" // use today's date for the most recent version
         let assistant = Assistant(username: username, password: password, version: version)
         
-        let workspaceID = "14c5902c-f1de-4c75-b8ee-537b6ed2bd99"
+        let workspaceID = RTConstants.chatbotWorkspaceID
         let failure = { (error: Error) in print(error) }
         var context: Context? // save context to continue conversation
         assistant.message(workspaceID: workspaceID, failure: failure) {
@@ -53,10 +53,10 @@ extension RTChatbotViewController: UITextFieldDelegate {
             textField.resignFirstResponder()
             userChatLabel.text = textField.text
             userChatLabel.isHidden = false
-            let username = "681ad1db-ad92-4885-8833-63190dec864e"
-            let password = "WvREbOy1Exb4"
+            let username = RTConstants.chatbotUserName
+            let password = RTConstants.chatbotPassword
             let version = "2018-07-29" // use today's date for the most recent version
-            let workspaceID = "14c5902c-f1de-4c75-b8ee-537b6ed2bd99"
+            let workspaceID = RTConstants.chatbotWorkspaceID
             let assistant = Assistant(username: username, password: password, version: version)
             let failure = { (error: Error) in print(error) }
             var context: Context? // save context to continue conversation
