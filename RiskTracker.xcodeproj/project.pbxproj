@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A999CF72110BDC3000A0667 /* RTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A999CF62110BDC3000A0667 /* RTImagePickerViewController.swift */; };
 		0AA7F4D7210C20CA00A277AB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7F4D6210C20CA00A277AB /* AppDelegate.swift */; };
 		0AA7F4D9210C20CA00A277AB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7F4D8210C20CA00A277AB /* ViewController.swift */; };
 		0AA7F4DC210C20CA00A277AB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DA210C20CA00A277AB /* Main.storyboard */; };
 		0AA7F4DE210C20D400A277AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DD210C20D400A277AB /* Assets.xcassets */; };
 		0AA7F4E1210C20D400A277AB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AA7F4DF210C20D400A277AB /* LaunchScreen.storyboard */; };
-		0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */; };
 		0ADBEA4B210CAC3F00958DEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */; };
 		0ADBEA4F210CD52500958DEC /* RTDateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ADBEA4E210CD52500958DEC /* RTDateFormatter.swift */; };
 		0ADBEA51210CEB5400958DEC /* VisualRecognitionV3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ADBEA50210CEB5400958DEC /* VisualRecognitionV3.framework */; };
@@ -39,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0A999CF62110BDC3000A0667 /* RTImagePickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RTImagePickerViewController.swift; path = ../../RTImagePickerViewController.swift; sourceTree = "<group>"; };
 		0AA7F4D3210C20CA00A277AB /* RiskTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RiskTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA7F4D6210C20CA00A277AB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AA7F4D8210C20CA00A277AB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,7 +47,6 @@
 		0AA7F4DD210C20D400A277AB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AA7F4E0210C20D400A277AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AA7F4E2210C20D400A277AB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTImagePickerViewController.swift; sourceTree = "<group>"; };
 		0ADBEA4A210CAC3F00958DEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0ADBEA4E210CD52500958DEC /* RTDateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTDateFormatter.swift; sourceTree = "<group>"; };
 		0ADBEA50210CEB5400958DEC /* VisualRecognitionV3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VisualRecognitionV3.framework; path = Carthage/Build/iOS/VisualRecognitionV3.framework; sourceTree = "<group>"; };
@@ -100,7 +100,7 @@
 				0AA7F4D6210C20CA00A277AB /* AppDelegate.swift */,
 				0AA7F4D8210C20CA00A277AB /* ViewController.swift */,
 				0ADBEA4E210CD52500958DEC /* RTDateFormatter.swift */,
-				0AA7F4E8210C21AA00A277AB /* RTImagePickerViewController.swift */,
+				0A999CF62110BDC3000A0667 /* RTImagePickerViewController.swift */,
 				0ADBEA5D210D713600958DEC /* RTChatbotViewController.swift */,
 				0AE8A5FE210C405000BD566A /* RTConstants.swift */,
 				0AA7F4DA210C20CA00A277AB /* Main.storyboard */,
@@ -286,11 +286,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A999CF72110BDC3000A0667 /* RTImagePickerViewController.swift in Sources */,
 				0ADBEA5E210D713600958DEC /* RTChatbotViewController.swift in Sources */,
 				0AA7F4D9210C20CA00A277AB /* ViewController.swift in Sources */,
 				0ADBEA4F210CD52500958DEC /* RTDateFormatter.swift in Sources */,
 				0AA7F4D7210C20CA00A277AB /* AppDelegate.swift in Sources */,
-				0AA7F4E9210C21AA00A277AB /* RTImagePickerViewController.swift in Sources */,
 				0AE8A5FF210C405000BD566A /* RTConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
