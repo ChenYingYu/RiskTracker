@@ -23,6 +23,7 @@ xcuserdata/
 *.xcscmblueprint
 RTConstants.swift
 GoogleService-Info.plist
+RTImagePickerViewController.swift
 
 ## Obj-C/Swift specific
 *.hmap
